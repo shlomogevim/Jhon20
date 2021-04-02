@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         binding.thoughtListView.adapter = thoughtAtapter
         val layoutManager = LinearLayoutManager(this)
         binding.thoughtListView.layoutManager = layoutManager
+
+        setListener()
     }
     override fun onRestart() {
         super.onRestart()
