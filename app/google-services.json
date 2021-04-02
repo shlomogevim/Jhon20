@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665280430958",
+    "project_id": "jhon20-2870c",
+    "storage_bucket": "jhon20-2870c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665280430958:android:022f1fb6587c231adbb77f",
+        "android_client_info": {
+          "package_name": "com.sg.jhon20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665280430958-lcsbrib19bkjuf0nl005pb0u90qud5u1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVoq3mZOuLEwTkNYqzRPiaI-sFBicgIcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665280430958-lcsbrib19bkjuf0nl005pb0u90qud5u1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
