@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Jhon20">
-        <activity android:name=".AddThoughtActivity"></activity>
+        <activity android:name=".CreateUserActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".AddThoughtActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
