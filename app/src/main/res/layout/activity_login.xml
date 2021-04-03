@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorAccent"
-        android:onClick="loginCreateUsetClicked"
+        android:onClick="loginCreateUserClicked"
         android:text="Create User"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

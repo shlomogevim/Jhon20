@@ -4,9 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
@@ -16,19 +19,20 @@ import com.sg.jhon20.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     var selectedCtegory = FUNNY
-   lateinit var thoughtAtapter: ThoghtsAdapter
+    lateinit var thoughtAtapter: ThoghtsAdapter
     val thoughts = arrayListOf<Thought>()
-  val thoughtCollectionRef = FirebaseFirestore.getInstance().collection(THOUGHTS_REF)
+    val thoughtCollectionRef = FirebaseFirestore.getInstance().collection(THOUGHTS_REF)
     lateinit var thoghtListner: ListenerRegistration
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
+
         binding.fab.setOnClickListener { view ->
-            val intent = Intent(this,AddThoughtActivity::class.java)
+            val intent = Intent(this, AddThoughtActivity::class.java)
             startActivity(intent)
         }
 
@@ -36,12 +40,66 @@ class MainActivity : AppCompatActivity() {
         binding.thoughtListView.adapter = thoughtAtapter
         val layoutManager = LinearLayoutManager(this)
         binding.thoughtListView.layoutManager = layoutManager
+        auth = FirebaseAuth.getInstance()
 
-        setListener()
+
+        //  setListener()
+
     }
+
     override fun onRestart() {
         super.onRestart()
-        setListener()
+        updateUi()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val menuItem = menu?.getItem(0)
+        if (auth.currentUser == null) {
+            //logout
+            menuItem.title = "Login"
+        } else {
+            //login
+            menuItem.title = "Logout"
+        }
+        return super.onPrepareOptionsMenu(menu)
+    }
+
+    fun updateUi() {
+        if (auth.currentUser == null) {
+            binding.mainCrazyBtn.isEnabled = false
+            binding.mainPopularBtn.isEnabled = false
+            binding.mainFunnyBtn.isEnabled = false
+            binding.mainSeriousBtn.isEnabled = false
+            binding.fab.isEnabled = false
+            thoughts.clear()
+            thoughtAtapter.notifyDataSetChanged()
+        } else {
+            binding.mainCrazyBtn.isEnabled = true
+            binding.mainPopularBtn.isEnabled = true
+            binding.mainFunnyBtn.isEnabled = true
+            binding.mainSeriousBtn.isEnabled = true
+            binding.fab.isEnabled = true
+            setListener()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_login) {
+            if (auth.currentUser == null) {
+                val loginIntent = Intent(this, LoginActivity::class.java)
+                startActivity(loginIntent)
+            } else {
+                auth.signOut()
+                updateUi()
+            }
+            return true
+        }
+        return false
     }
 
     fun setListener() {
