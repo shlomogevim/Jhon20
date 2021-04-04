@@ -20,7 +20,7 @@ import com.sg.jhon20.adapters.ThoghtsAdapter
 import com.sg.jhon20.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+  lateinit var binding: ActivityMainBinding
     var selectedCtegory = FUNNY
     lateinit var thoughtAtapter: ThoghtsAdapter
     val thoughts = arrayListOf<Thought>()

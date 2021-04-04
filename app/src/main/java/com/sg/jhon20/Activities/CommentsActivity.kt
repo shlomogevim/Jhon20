@@ -13,12 +13,12 @@ import com.sg.jhon20.databinding.ActivityMainBinding
 
 class CommentsActivity : AppCompatActivity() {
     lateinit var thoughtDocmentId: String
-    private lateinit var binding: ActivityCommentsBinding
+   private lateinit var binding: ActivityCommentsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCommentsBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_comments)
+        setContentView(binding.root)
         thoughtDocmentId = intent.getStringExtra(DOCUMENT_KEY)
         //Log.i("abc","thought: ${thoughtDocmentId}")
     }
