@@ -1,4 +1,4 @@
-package com.sg.jhon20
+package com.sg.jhon20.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.sg.jhon20.*
 import com.sg.jhon20.databinding.ActivityAddThoughtBinding
 
 

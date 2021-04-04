@@ -1,4 +1,4 @@
-package com.sg.jhon20
+package com.sg.jhon20.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
-import com.sg.jhon20.databinding.ActivityCreateUserBinding
 import com.sg.jhon20.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -37,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
     fun loginCreateUserClicked(view: View) {
-        val createIntent=Intent(this,CreateUserActivity::class.java)
+        val createIntent=Intent(this, CreateUserActivity::class.java)
         startActivity(createIntent)
     }
 

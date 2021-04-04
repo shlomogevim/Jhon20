@@ -3,6 +3,7 @@ package com.sg.jhon20
 
 const val THOUGHTS_REF="thoughts"
 const val USERS_REF="users"
+const val COMMENTS_REF="comments"
 
 const val FUNNY="funny"
 const val SERIOUS="serious"
@@ -17,3 +18,6 @@ const val TIMESTAMP="timestamp"
 const val USERNAME="username"
 
 const val DATE_CREATED="dateCreated"
+const val COMMENTS_TXT="commentText"
+
+const val DOCUMENT_KEY="docId"

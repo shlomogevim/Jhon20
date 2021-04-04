@@ -1,4 +1,4 @@
-package com.sg.jhon20
+package com.sg.jhon20.Activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +14,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
+import com.sg.jhon20.*
+import com.sg.jhon20.Model.Thought
+import com.sg.jhon20.adapters.ThoghtsAdapter
 import com.sg.jhon20.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +39,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        thoughtAtapter = ThoghtsAdapter(thoughts)
+        thoughtAtapter = ThoghtsAdapter(thoughts){thought ->
+            var commentActivity=Intent(this,CommentsActivity::class.java)
+           commentActivity.putExtra(DOCUMENT_KEY,thought.documentId)
+            startActivity(commentActivity)
+        }
         binding.thoughtListView.adapter = thoughtAtapter
         val layoutManager = LinearLayoutManager(this)
         binding.thoughtListView.layoutManager = layoutManager

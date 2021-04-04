@@ -1,4 +1,4 @@
-package com.sg.jhon20
+package com.sg.jhon20.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.sg.jhon20.Model.Thought
+import com.sg.jhon20.NUM_LIKES
+import com.sg.jhon20.R
+import com.sg.jhon20.THOUGHTS_REF
 
-class ThoghtsAdapter(val thoughts: ArrayList<Thought>) :
+class ThoghtsAdapter(val thoughts: ArrayList<Thought>, val itemClick: (Thought) -> Unit) :
     RecyclerView.Adapter<ThoghtsAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent?.context).inflate(R.layout.thought_list_view, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, itemClick)
 
     }
 
@@ -26,7 +30,8 @@ class ThoghtsAdapter(val thoughts: ArrayList<Thought>) :
     override fun getItemCount() = thoughts.count()
 
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View?, val itemClick: (Thought) -> Unit) :
+        RecyclerView.ViewHolder(itemView!!) {
         val username = itemView?.findViewById<TextView>(R.id.listViewUsername)
         val timestap = itemView?.findViewById<TextView>(R.id.listViewTimestamp)
         val thuoghtsText = itemView?.findViewById<TextView>(R.id.listViewToughtTxt)
@@ -38,9 +43,11 @@ class ThoghtsAdapter(val thoughts: ArrayList<Thought>) :
             thuoghtsText?.text = thought.thoughtTxt
             numLikes?.text = thought.numLikes.toString()
             timestap?.text = thought.timestamp?.toDate().toString()
+            itemView.setOnClickListener { itemClick(thought) }
             likesImage?.setOnClickListener {
-                FirebaseFirestore.getInstance().collection(THOUGHTS_REF).document(thought.documentId)
-                    .update(NUM_LIKES,thought.numLikes+1)
+                FirebaseFirestore.getInstance().collection(THOUGHTS_REF)
+                    .document(thought.documentId)
+                    .update(NUM_LIKES, thought.numLikes + 1)
             }
         }
     }

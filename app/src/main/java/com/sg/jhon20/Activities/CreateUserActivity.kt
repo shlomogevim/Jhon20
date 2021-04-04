@@ -1,4 +1,4 @@
-package com.sg.jhon20
+package com.sg.jhon20.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +8,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.auth.User
+import com.sg.jhon20.DATE_CREATED
+import com.sg.jhon20.USERNAME
+import com.sg.jhon20.USERS_REF
 import com.sg.jhon20.databinding.ActivityCreateUserBinding
-import com.sg.jhon20.databinding.ActivityMainBinding
 
 class CreateUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateUserBinding
