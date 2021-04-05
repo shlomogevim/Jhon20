@@ -1,4 +1,4 @@
-package com.sg.jhon20.Activities
+package com.sg.jhon20.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

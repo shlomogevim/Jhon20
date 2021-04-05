@@ -1,4 +1,4 @@
-package com.sg.jhon20.Activities
+package com.sg.jhon20.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

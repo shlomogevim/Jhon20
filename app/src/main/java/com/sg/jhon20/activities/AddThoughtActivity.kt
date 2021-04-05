@@ -1,9 +1,10 @@
-package com.sg.jhon20.Activities
+package com.sg.jhon20.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.sg.jhon20.*
@@ -26,7 +27,7 @@ class AddThoughtActivity : AppCompatActivity() {
         data.put(NUM_LIKES,0)
         data.put(THOUGHT_TXT,binding.addToughtText.text.toString())
         data.put(TIMESTAMP,FieldValue.serverTimestamp())
-        data.put(USERNAME,binding.addUsernameText.text.toString())
+        data.put(USERNAME,FirebaseAuth.getInstance().currentUser.displayName.toString())
 
         FirebaseFirestore.getInstance().collection(THOUGHTS_REF).add(data)
             .addOnSuccessListener {

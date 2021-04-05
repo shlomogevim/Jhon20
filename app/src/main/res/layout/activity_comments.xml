@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:layoutDirection="ltr"
-    tools:context=".Activities.CommentsActivity">
+    tools:context=".activities.CommentsActivity">
 
     <EditText
         android:id="@+id/enterCommentText"

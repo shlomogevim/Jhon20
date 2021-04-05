@@ -37,11 +37,15 @@ class ThoghtsAdapter(val thoughts: ArrayList<Thought>, val itemClick: (Thought) 
         val thuoghtsText = itemView?.findViewById<TextView>(R.id.listViewToughtTxt)
         val numLikes = itemView?.findViewById<TextView>(R.id.listViewNumLikes)
         val likesImage = itemView?.findViewById<ImageView>(R.id.listViewLikesImage)
+        val numComments = itemView?.findViewById<TextView>(R.id.numCommentsLabel)
+
+
 
         fun bindThuoght(thought: Thought) {
             username?.text = thought.userName
             thuoghtsText?.text = thought.thoughtTxt
             numLikes?.text = thought.numLikes.toString()
+            numComments?.text=thought.numComments.toString()
             timestap?.text = thought.timestamp?.toDate().toString()
             itemView.setOnClickListener { itemClick(thought) }
             likesImage?.setOnClickListener {

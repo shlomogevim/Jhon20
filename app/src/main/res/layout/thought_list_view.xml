@@ -47,13 +47,13 @@
         android:id="@+id/listViewNumLikes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:text="99"
+        android:layout_marginStart="16dp"
         android:textColor="@color/colorPrimary"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/listViewLikesImage"
         app:layout_constraintStart_toEndOf="@+id/listViewLikesImage"
-        app:layout_constraintTop_toTopOf="@+id/listViewLikesImage" />
+        app:layout_constraintTop_toTopOf="@+id/listViewLikesImage"
+        tools:text="99" />
 
     <ImageView
         android:id="@+id/listViewLikesImage"
@@ -61,9 +61,28 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewToughtTxt"
         app:srcCompat="@drawable/star_icon_filled" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listViewNumLikes"
+        app:layout_constraintStart_toEndOf="@+id/listViewNumLikes"
+        app:layout_constraintTop_toTopOf="@+id/listViewNumLikes"
+        app:srcCompat="@drawable/commenticon" />
+
+    <TextView
+        android:id="@+id/numCommentsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="99" />
 </androidx.constraintlayout.widget.ConstraintLayout>
