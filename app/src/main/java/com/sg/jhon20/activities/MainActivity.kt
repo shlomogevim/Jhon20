@@ -15,7 +15,7 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.sg.jhon20.*
-import com.sg.jhon20.Model.Thought
+import com.sg.jhon20.model.Thought
 import com.sg.jhon20.adapters.ThoghtsAdapter
 import com.sg.jhon20.databinding.ActivityMainBinding
 
@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
 
         //  setListener()
+         val loginInntent= Intent(this,LoginActivity::class.java)
+        startActivity(loginInntent)
 
     }
 

@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.sg.jhon20.Model.Thought
+import com.sg.jhon20.model.Thought
 import com.sg.jhon20.NUM_LIKES
 import com.sg.jhon20.R
 import com.sg.jhon20.THOUGHTS_REF

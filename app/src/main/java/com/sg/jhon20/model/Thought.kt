@@ -1,4 +1,4 @@
-package com.sg.jhon20.Model
+package com.sg.jhon20.model
 
 import com.google.firebase.Timestamp
 

@@ -18,6 +18,8 @@ class CreateUserActivity : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i("aaa","inside CreatUserActivity")
+
         super.onCreate(savedInstanceState)
         binding = ActivityCreateUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -28,16 +30,17 @@ class CreateUserActivity : AppCompatActivity() {
         val email = binding.createEmailTxt.text.toString()
         val password = binding.cratePasswordText.text.toString()
         val username = binding.createUsernameTxt.text.toString()
+        Log.i("aaa","email=$email ,password=$password ,username=$username")
         auth.createUserWithEmailAndPassword(email, password)
             .addOnSuccessListener { result ->
+                Log.e("aaa", "insid1: ${result}")
                 val changeRequest = UserProfileChangeRequest.Builder()
                     .setDisplayName(username)
                     .build()
+                Log.e("aaa", "insid2: ${result}")
                 result.user.updateProfile(changeRequest)
                     .addOnFailureListener { exception ->
-                        Log.e(
-                            "exception",
-                            "could not update display name: ${exception.localizedMessage}"
+                        Log.e( "aaa","could not update display name: ${exception.localizedMessage}"
                         )
                     }
                 val data = HashMap<String, Any>()

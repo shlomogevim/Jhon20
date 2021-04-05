@@ -13,7 +13,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.sg.jhon20.*
-import com.sg.jhon20.Model.Comment
+import com.sg.jhon20.model.Comment
 import com.sg.jhon20.adapters.CommentsAdapter
 import com.sg.jhon20.databinding.ActivityCommentsBinding
 

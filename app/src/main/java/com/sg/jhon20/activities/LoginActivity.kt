@@ -22,13 +22,14 @@ class LoginActivity : AppCompatActivity() {
     fun loginLoginClicked(view: View) {
         val email=binding.loginEmailTxt.text.toString()
         val password=binding.loginPasswordTxt.text.toString()
-
         auth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
+                Log.i("aaa","inside loginActivity2 email=$email,password=$password")
+
                 finish()
             }
             .addOnFailureListener { exception->
-                Log.e("Exception","Could not sign in usert:$exception")
+                Log.e("aaa","Could not sign in usert:$exception")
 
 
             }

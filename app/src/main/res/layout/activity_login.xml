@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginEmailTxt" />
 
     <Button
-        android:id="@+id/loginLogibBtn"
+        android:id="@+id/loginLoginBtn"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -68,5 +68,5 @@
         android:text="Dont  have an account ?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLogibBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/loginLoginBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
